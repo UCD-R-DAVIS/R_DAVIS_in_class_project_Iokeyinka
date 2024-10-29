@@ -39,9 +39,9 @@ the80stidy <- filter(surveys, year %in% 1981:1983)
 small_animals <- filter(surverys, weight < 5)
 small_animals-ids <- select(filter(surveys, weight < 5), record_id, plot_id, species_id)
 
-#same proce, using a pipe
+#same process, using a pipe
 #cmd Shift M
-%>%
+
   
 
   
@@ -65,12 +65,12 @@ surveys %>% filter(
 
 mini <- surveys[190:209,]
 tablw(mini$species_id)
-#how many rows have a pecies ID that's either DM or NL?
+#how many rows have a species ID that's either DM or NL?
 nrow(mini)
 
 
 
-text <- mini %>% filter(species_id == c('DM' , NL''))
+text <- mini %>% filter(species_id == c('DM' , NL""))
 nrow(test)
 
 
