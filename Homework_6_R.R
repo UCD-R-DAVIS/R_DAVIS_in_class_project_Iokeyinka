@@ -32,15 +32,19 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 #PROBLEM 03: 
 
-countries <- c("Brazil", "China", "El Salvador", "Niger", "United States") 
-#create a vector with just the countries we are interested in
+library(ggplot2)
+library(dplyr)
+library(gapminder)
 
-gapminder %>% 
-  filter(country %in% countries) %>% 
-  ggplot(aes(x = country, y = lifeExp))+
-  geom_boxplot() +
-  geom_jitter(alpha = 0.3, color = "blue")+
-  theme_minimal() +
-  ggtitle("Life Expectancy of Five Countries") + #title the figure
-  theme(plot.title = element_text(hjust = 0.5)) +#centered the plot title
-  xlab("Country") + ylab("Life Expectancy") #how to change axis names
+# Filter the data for the specified countries
+gapminder %>%
+  filter(country %in% c("Brazil", "China", "El Salvador", "Niger", "United States")) %>%
+  ggplot(aes(x = country, y = lifeExp)) +
+  geom_boxplot(outlier.shape = NA, color = "darkblue") +  # Draw boxplots
+  geom_jitter(width = 0.2, alpha = 0.5, color = "tomato") +  # Add jittered data points
+  labs(title = "Life Expectancy of Five Countries",
+       x = "Country",
+       y = "Life Expectancy") +
+  theme_minimal()
+
+
