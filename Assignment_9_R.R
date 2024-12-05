@@ -1,3 +1,4 @@
+library(tidyverse)
 surveys <- read.csv("data/portal_data_joined.csv")
 mloa <- read.csv("https://raw.githubusercontent.com/ucd-cepb/R-DAVIS/master/data/mauna_loa_met_2001_minute.csv")
 
@@ -30,4 +31,3 @@ mloa %>% select(c("temp_C_2m", "temp_C_10m", "temp_C_towertop")) %>% map_df(C_to
 surveys$genusspecies <- lapply(1:length(surveys$species), function(i){
   paste0(surveys$genus[i], " ", surveys$species[i])
 })
-
